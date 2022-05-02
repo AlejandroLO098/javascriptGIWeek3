@@ -30,16 +30,50 @@ class Person {
 };
 
 let alex = new Person ('Alex', 'student', 24)
+let ana = new Person('Ana', 'student', 25)
 
 console.log(alex, alex.name)
 console.log(alex.fetchJob(), alex.exercise())
 
-class Programmer extends Person {
-    constructor(name, job, age, languge, busy) {
+class Programmer extends Person { //inherit
+    constructor(name, job, age, languages = []) {
         super(name, job, age);
-        this.languge = languge;
+        this.languages =  languages;
         this.busy = true;
     }
 
-    completeTask
-}
+    completeTask() {
+        this.busy = false;           
+    }
+
+    acceptNewTask() {
+        this.busy = false;     // 7. Give the Programmer 'learnLanguage' and 'listLanguages' methods that add new  
+    }                               //languages to the programmer and list off all languages the programmer knows.
+
+    offerNewTask() {
+        if(this.busy) {
+            console.log(`${this.name} can't accept any new tasks right now.`)
+        } else {
+            console.log(`${this.name} would love to take on a new responsibility.`)
+        }
+    }
+
+    learnLanguage(language) {
+        this.languages = []
+        languages.push(language)
+    }
+
+    listLanguages() {
+        Programmer.languages.forEach(languageList => console.log(languageList));
+    }
+
+
+};
+
+
+let dave = new Programmer ('Dave', 'student', 20, 'Javascript')
+
+dave.completeTask();
+dave.offerNewTask();
+dave.learnLanguage('Python');
+
