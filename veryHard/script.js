@@ -21,7 +21,7 @@ class Person {
     }
 
     exercise() {
-        return 'Incline on treadmill is fun! - said no one ever';
+         return 'Incline on treadmill is fun! - said no one ever.';
     }
 
     fetchJob() {
@@ -32,7 +32,7 @@ class Person {
 let alex = new Person ('Alex', 'student', 24)
 let ana = new Person('Ana', 'student', 25)
 
-console.log(alex, alex.name)
+console.log(alex, ana);
 console.log(alex.fetchJob(), alex.exercise())
 
 class Programmer extends Person { //inherit
@@ -40,6 +40,7 @@ class Programmer extends Person { //inherit
         super(name, job, age);
         this.languages =  languages;
         this.busy = true;
+        
     }
 
     completeTask() {
@@ -47,8 +48,8 @@ class Programmer extends Person { //inherit
     }
 
     acceptNewTask() {
-        this.busy = false;     // 7. Give the Programmer 'learnLanguage' and 'listLanguages' methods that add new  
-    }                               //languages to the programmer and list off all languages the programmer knows.
+        this.busy = true;      
+    }                              
 
     offerNewTask() {
         if(this.busy) {
@@ -56,24 +57,32 @@ class Programmer extends Person { //inherit
         } else {
             console.log(`${this.name} would love to take on a new responsibility.`)
         }
-    }
+    }               
+                            //7. Give the Programmer 'learnLangauge' and 'listLanguages' methods that add new
+                            //langauges to the programmer and list of all languages the programmer knows.
 
-    learnLanguage(language) {
-        this.languages = []
-        languages.push(language)
+    learnLanguage(newLanguage) {
+        this.languages.push(newLanguage);
+        
     }
 
     listLanguages() {
-        Programmer.languages.forEach(languageList => console.log(languageList));
+        this.languages.forEach(languageList => console.log(languageList));
     }
 
 
 };
 
 
-let dave = new Programmer ('Dave', 'student', 20, 'Javascript')
+let dave = new Programmer ('Dave', 'student', 20, ['Javascript'])
+let gregg = new Programmer('Gregg', 'developer', 29, ['JavaScript'])
 
 dave.completeTask();
 dave.offerNewTask();
-dave.learnLanguage('Python');
+dave.learnLanguage('Go');
+dave.listLanguages()
+console.log(dave)
 
+console.log(gregg);
+gregg.learnLanguage('Python');
+console.log(gregg);
